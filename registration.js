@@ -16,16 +16,38 @@ const configureFormValidation = function() {
         /* Use the form's checkValidity() function to validate the form's input. Display an appropriate message
            in the div for the result message. Don't use an alert or popup for the message.
          */
-        // -KH This if/else statement checks if the form is valid and displays a message if not. 
-        // -KH I intended this to prevent submission of the form if there are no inputs, but learned that
-        // -KH for it to fire, I'd need to bypass browser validation, which I didn't want to do. I left
-        // -KH it in to show my thought process.
+        // -KH Check form validity AND write cookies and submit the form.
         if (form.checkValidity()) {
             messageDiv.textContent = "Form is valid and ready to submit!";
+            writeCookieData(form);
         } else {
             messageDiv.textContent = "Please correct the invalid fields.";
         }
     })
+}
+
+// -KH This new function writes the form data to cookies and then submits the form to the next page.
+const writeCookieData = function(form) {
+    // -KH I added an old date to ensure cookies expire
+    const oldDate = "Thu, 01 Jan 1970 00:00:00 UTC";
+    // -KH Get all form inputs
+    const formInputs = form.querySelectorAll('input:not([type="submit"])');
+    
+    // -KH Clear existing stored cookies for the form fields
+    for (const input of formInputs) {
+      document.cookie = `${input.id}=; expires=${oldDate}; path=/`;
+    }
+
+    // -KH Write a new cookie for each form input
+    for (const input of formInputs) {
+        // -KH The newsletter input is a radio button, so it's being handled separately to get the checked value.
+        if (input.type === "radio" && !input.checked) {
+            continue;
+        }
+        document.cookie = `${input.id}=${input.value}; path=/`;
+    }
+    // -KH This line submits the form, directing the user to the next page.
+    form.submit();
 }
 
 const checkPassword = function() {
@@ -52,6 +74,6 @@ const checkPassword = function() {
 
 // Event handler called when page has loaded
 window.onload = () => {
-    // -KH Add code here to call function to configure validation when page has loaded
+    // -KH Call function to configure validation when page has loaded
     configureFormValidation();
 }
