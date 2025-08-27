@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capella Volunteers - Home</title>
+    <link rel="stylesheet" href="css/styles.wk09.css">
+</head>
+<body>
+<div class="top">
+    <a class="logo" href="registration.html">CapellaVolunteers<span class="org">.org</span></a>
+</div>
+<nav>
+    <ul>
+        <li><a href="registration.html">Home</a></li>
+        <li><a href="registration.html">Invitation</a></li>
+        <li><a href="registration.html">Volunteers</a></li>
+        <li><a href="registration.html">Gallery</a></li>
+        <li><a href="registration.html">Registration</a></li>
+    </ul>
+</nav>
+<main id="form-container">
+    <form action="#" id="reg-form" class="registration-form">
+        <label id="reg-username-label" for="reg-username-input">User Name:</label>
+        <!--KH - Added the validation rules for the User Name field-->
+        <input type="text" id="reg-username-input" placeholder="Username (required, 5 char. min.)" required minlength="3" pattern="[a-zA-Z0-9]+">
+        <label id="reg-password-label" for="reg-password-input">Password:</label>
+        <!--KH - Added the validation rules for the Password field-->
+        <input type="password" id="reg-password-input" placeholder="Password (8 char. min.)" required minlength="8">
+        <label id="reg-password-verify-label" for="reg-password-verify-input">Password Verify:</label>
+        <!--KH - Added the validation rules for the Verify Password field-->
+        <input type="password" id="reg-password-verify-input" placeholder="Verify Password" required minlength="8">
+        <label id="reg-first-name-label" for="reg-first-name-input">First Name:</label>
+        <!--KH - Added the validation rules for the First Name field-->
+        <input type="text" id="reg-first-name-input" placeholder="First Name (required)" required minlength="1">
+        <label id="reg-last-name-label" for="reg-last-name-input">Last Name:</label>
+        <!--KH - Added the validation rules for the Last Name field-->
+        <input type="text" id="reg-last-name-input" placeholder="Last Name (required)" required minlength="1">
+        <label id="reg-email-label" for="reg-email-input">Email:</label>
+        <!--KH - Added the validation rules for the Email field-->
+        <input type="email" id="reg-email-input" placeholder="Email Address (required)" required>
+        <label id="reg-phone-label" for="reg-phone-input">Phone:</label>
+        <!--KH - Added the validation rules for the Phone field, including the input mask-->
+        <input type="text" id="reg-phone-input" placeholder="(xxx) xxx-xxxx (optional)" pattern="^\(\d{3}\) \d{3}-\d{4}$">
+        <label id="reg-newsletter-label">Newsletter:</label>
+        <fieldset id="reg-newsletter-signup">
+            <legend>Newsletter Signup</legend>
+            <label for="newsletter-yes">Yes</label>
+            <input type="radio" name="newsletter" id="newsletter-yes" value="Yes" checked>
+            <label for="newsletter-no">No</label>
+            <input type="radio" name="newsletter" id="newsletter-no" value="No">
+        </fieldset>
+        <input type="submit" value="Register" id="reg-submit-button">
+        <div id="reg-result-message"></div>
+    </form>
+</main>
+
+<footer>rev. 2024 for work in IT3240</footer>
+<script src="js/registration.js"></script>
+</body>
+</html>
