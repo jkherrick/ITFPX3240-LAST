@@ -18,28 +18,22 @@
         <li><a href="registration.html">Registration</a></li>
     </ul>
 </nav>
+<!-- -KH The action attribute in the <form> tag has been changed from # to "confirm.html", which directs the form to the confirmation page upon successful submission. -->    
 <main id="form-container">
-    <form action="#" id="reg-form" class="registration-form">
+    <form action="confirm.html" id="reg-form" class="registration-form">
         <label id="reg-username-label" for="reg-username-input">User Name:</label>
-        <!--KH - Added the validation rules for the User Name field-->
         <input type="text" id="reg-username-input" placeholder="Username (required, 5 char. min.)" required minlength="3" pattern="[a-zA-Z0-9]+">
         <label id="reg-password-label" for="reg-password-input">Password:</label>
-        <!--KH - Added the validation rules for the Password field-->
         <input type="password" id="reg-password-input" placeholder="Password (8 char. min.)" required minlength="8">
         <label id="reg-password-verify-label" for="reg-password-verify-input">Password Verify:</label>
-        <!--KH - Added the validation rules for the Verify Password field-->
         <input type="password" id="reg-password-verify-input" placeholder="Verify Password" required minlength="8">
         <label id="reg-first-name-label" for="reg-first-name-input">First Name:</label>
-        <!--KH - Added the validation rules for the First Name field-->
         <input type="text" id="reg-first-name-input" placeholder="First Name (required)" required minlength="1">
         <label id="reg-last-name-label" for="reg-last-name-input">Last Name:</label>
-        <!--KH - Added the validation rules for the Last Name field-->
         <input type="text" id="reg-last-name-input" placeholder="Last Name (required)" required minlength="1">
         <label id="reg-email-label" for="reg-email-input">Email:</label>
-        <!--KH - Added the validation rules for the Email field-->
         <input type="email" id="reg-email-input" placeholder="Email Address (required)" required>
         <label id="reg-phone-label" for="reg-phone-input">Phone:</label>
-        <!--KH - Added the validation rules for the Phone field, including the input mask-->
         <input type="text" id="reg-phone-input" placeholder="(xxx) xxx-xxxx (optional)" pattern="^\(\d{3}\) \d{3}-\d{4}$">
         <label id="reg-newsletter-label">Newsletter:</label>
         <fieldset id="reg-newsletter-signup">
